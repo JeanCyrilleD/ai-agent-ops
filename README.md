@@ -21,3 +21,7 @@ governance that survives contact with reality.
 ## Notes
 Scripts are sanitized (no personal paths, no secrets, no client content). They assume macOS + a
 web-research-capable LLM CLI. See `docs/operating-principles.md` before adapting them.
+
+## Scripts
+- `scripts/fleet_healthcheck.sh` — `fleet_healthcheck.sh --services fleet.services` : one-line OK/FAIL health table for every workshop (checks: shell command, TCP port, process name); exit 0 when all healthy, 1 on any failure. Cron/launchd-friendly.
+- `scripts/log_rotate.sh` — `log_rotate.sh --dir ./logs --compress-after 7 --keep 30` : gzip-compress logs older than 7 days, delete archives older than 30 days; `--dry-run` previews every action without touching anything.
